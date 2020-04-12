@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Tokeiya3.TypeTextDescriptor</RootNamespace>
+    <AssemblyName>Tokeiya3.TypeTextDescriptor</AssemblyName>
+    <Version>0.0.1</Version>
+    <Description>Arbitrary type simple text descriptor.</Description>
+    <Copyright>Tokeiya</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Tokeiya/TypeTextDescriptor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Tokeiya/TypeTextDescriptor.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>console text descriotor</PackageTags>
+    <NullableReferenceTypes>true</NullableReferenceTypes>
+  </PropertyGroup>
+
+</Project>
