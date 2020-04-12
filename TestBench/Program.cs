@@ -15,7 +15,7 @@ namespace TestBench
 		static void Main(string[] args)
 		{
 			//X+Y
-			Expression<Func<Point,int>> expr = (p) => p.X + p.Y;
+			Expression<Func<Point,int>> expr = (p) => Math.Abs(p.X + p.Y);
 
 
 

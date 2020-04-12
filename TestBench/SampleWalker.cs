@@ -24,6 +24,14 @@ namespace TestBench
 		}
 
 
+		protected override Expression VisitMethodCall(MethodCallExpression node)
+		{
+			Enter($"Method:{node.Method.Name}");
+			var ret= base.VisitMethodCall(node);
+			Exit($"Exit:{node.Method.Name}");
+			return ret;
+		}
+
 		public override Expression Visit(Expression node)
 		{
 			Enter("Expression");
@@ -40,6 +48,8 @@ namespace TestBench
 
 			return ret;
 		}
+
+
 
 		protected override Expression VisitBinary(BinaryExpression node)
 		{
