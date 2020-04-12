@@ -17,7 +17,7 @@ namespace TestBench
 			//X+Y
 			Expression<Func<Point,int>> expr = (p) => Math.Abs(p.X + p.Y);
 
-
+			
 
 			var hoge = new SampleWalker();
 
