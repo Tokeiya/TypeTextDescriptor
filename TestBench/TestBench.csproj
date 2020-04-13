@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RecordFormatter\RecordFormatter.csproj" />
     <ProjectReference Include="..\TextTypeDescriptorTest\TextTypeDescriptorTest.csproj" />
     <ProjectReference Include="..\TypeTextDescriptor\TypeTextDescriptor.csproj" />
   </ItemGroup>
