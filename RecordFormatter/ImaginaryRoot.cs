@@ -21,4 +21,6 @@ namespace RecordFormatter
 		public void ToRecord(StringBuilder buffer)
 			=> throw new NotSupportedException($"{nameof(ToRecord)} is not supported.");
 	}
+
+
 }
