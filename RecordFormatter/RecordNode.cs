@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RecordFormatter
+﻿namespace RecordFormatter
 {
 	public sealed class RecordNode
 	{

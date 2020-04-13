@@ -1,30 +1,38 @@
+using ChainingAssertion;
 using System;
 using System.Linq.Expressions;
-using ChainingAssertion;
 using Tokeiya3.TypeTextDescriptor;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace TextTypeDescriptorTest
 {
-	using expression=Expression<Func<SampleClass,object>>;
 	using static ExpressionNameExtractor;
+	using expression = Expression<Func<SampleClass, object>>;
 
-	class SampleClass
+	internal class SampleClass
 	{
 		public int Field;
 		public int Property { get; set; }
 
-		public int Method(int i) => Field + Property + i;
+		public int Method(int i)
+		{
+			return Field + Property + i;
+		}
 	}
 
 	public class NameExtractorTest
 	{
 		private readonly ITestOutputHelper _output;
-		public NameExtractorTest(ITestOutputHelper output) => _output = output;
+		public NameExtractorTest(ITestOutputHelper output)
+		{
+			_output = output;
+		}
 
-		static void Assert(expression actual, string expected) => ExtractName(actual).Is(expected);
-
+		private static void Assert(expression actual, string expected)
+		{
+			ExtractName(actual).Is(expected);
+		}
 
 		[Fact]
 		public void BinaryOperationTest()
@@ -58,10 +66,5 @@ namespace TextTypeDescriptorTest
 			Assert(x => +x.Field, "+Field");
 			Assert(x => -x.Property, "-Property");
 		}
-
-
-
-
-
 	}
 }
