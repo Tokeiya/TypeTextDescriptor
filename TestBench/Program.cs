@@ -16,23 +16,14 @@ namespace TestBench
 	{
 		static void Main(string[] args)
 		{
-			var writer=new StringWriter();
-			using var digraph = new DigraphWriter("sample", new StreamWriter("G:\\output.dot"));
+			string? hoge = null;
+			Console.WriteLine(hoge);
 
-			var a = new RecordNode(Direction.Horizontal);
-			a.RootLabel.Add("a");
-			a.RootLabel.Add("b");
+			Expression<Func<Point, int>> expr = x => x.X + x.Y;
+			using var vis = new TreeVisualizer(new StreamWriter("g:\\output.dot"), "hoge");
 
-
-			var b=new RecordNode(Direction.Vertical);
-			b.RootLabel.Add("c");
-			b.RootLabel.Add("d");
-
-			digraph.WriteEdge(a, b);
-			digraph.WriteRecord(a);
-			digraph.WriteRecord(b);
-
-
+			vis.Visualize(expr);
 		}
+
 	}
 }

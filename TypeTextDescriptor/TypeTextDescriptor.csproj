@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/Tokeiya/TypeTextDescriptor.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>console text descriotor</PackageTags>
-    <NullableReferenceTypes>true</NullableReferenceTypes>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

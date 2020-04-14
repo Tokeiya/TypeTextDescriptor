@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#nullable enable
+
+using System;
 using System.Text;
 using System.Threading;
 
@@ -14,8 +15,7 @@ namespace RecordFormatter
 
 	public sealed class RecordNode
 	{
-		private static int _idSeed = 0;
-		static int GetId() => Interlocked.Increment(ref _idSeed);
+		private static int _idSeed;
 
 		public RecordNode(Direction initialDirection)
 		{
@@ -28,6 +28,11 @@ namespace RecordFormatter
 
 		public int Identity { get; }
 		public IRecordLabel RootLabel { get; }
+
+		private static int GetId()
+		{
+			return Interlocked.Increment(ref _idSeed);
+		}
 
 		public void ToRecordNode(StringBuilder buffer)
 		{

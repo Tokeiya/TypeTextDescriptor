@@ -1,4 +1,4 @@
-﻿using System;
+﻿#nullable enable
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,16 +6,21 @@ namespace RecordFormatter
 {
 	internal sealed class RecordLabel : IRecordLabel
 	{
-		private readonly bool _hasBrackets;
 		private readonly List<IRecordLabel> _elements = new List<IRecordLabel>();
+		private readonly bool _hasBrackets;
 
-		public RecordLabel(IRecordLabel parent, bool hasBrackets = true) =>
+		public RecordLabel(IRecordLabel parent, bool hasBrackets = true)
+		{
 			(Parent, _hasBrackets) = (parent, hasBrackets);
+		}
 
 
 		public IRecordLabel Parent { get; }
 
-		public void Add(string fieldId) => _elements.Add(new FieldId(fieldId, this));
+		public void Add(string fieldId)
+		{
+			_elements.Add(new FieldId(fieldId, this));
+		}
 
 		public IRecordLabel Add()
 		{
