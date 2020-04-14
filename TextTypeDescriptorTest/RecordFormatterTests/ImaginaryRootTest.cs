@@ -1,7 +1,8 @@
 ﻿using System;
 using Xunit;
 using static RecordFormatter.ImaginaryRoot;
-namespace TextTypeDescriptorTest.RecordFormatter
+
+namespace TextTypeDescriptorTest.RecordFormatterTests
 {
 	public class ImaginaryRootTest
 	{
@@ -17,6 +18,8 @@ namespace TextTypeDescriptorTest.RecordFormatter
 		{
 			Assert.Throws<NotSupportedException>(() => Root.Parent);
 		}
+
+
 
 	}
 }

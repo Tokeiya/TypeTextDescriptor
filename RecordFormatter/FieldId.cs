@@ -1,24 +1,41 @@
-﻿using System.Text;
+﻿using System;
+using System.ComponentModel;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace RecordFormatter
 {
 	internal sealed class FieldId : IRecordLabel
 	{
-		public IRecordLabel Parent => throw new System.NotImplementedException();
 
-		public void Add(string fieldId)
+		private readonly string _id;
+
+		internal FieldId(string id,IRecordLabel parent)
 		{
-			throw new System.NotImplementedException();
+			Parent = parent;
+			_id = id;
 		}
 
-		public IRecordLabel Add()
-		{
-			throw new System.NotImplementedException();
-		}
+		public IRecordLabel Parent { get; }
+
+
+		public void Add(string fieldId) => throw new NotSupportedException($"{nameof(Add)} not supported.");
+
+		public IRecordLabel Add() => throw new NotSupportedException($"{nameof(Add)} not supported.");
+
 
 		public void ToRecord(StringBuilder buffer)
 		{
-			throw new System.NotImplementedException();
+			var ret = Regex.Replace(_id, "[\\r\\n\\\"{]", m => m.Groups[0].Value switch
+			{
+				"\r" => "\\r",
+				"\n" => "\\n",
+				"\"" => "\\\"",
+				"{" => "\\{",
+				_ => throw new InvalidOperationException()
+			});
+
+			buffer.Append($"\"{ret}\"");
 		}
 	}
 }
