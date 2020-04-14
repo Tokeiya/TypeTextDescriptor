@@ -41,6 +41,12 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		public FieldIdTest(ITestOutputHelper output) => _output = output;
 
 
+		[Fact]
+		public void CtorTest()
+		{
+			Throws<ArgumentException>(() => new FieldId("", ImaginaryRoot.Root));
+		}
+
 
 		[Fact]
 		public void Add()
@@ -100,9 +106,9 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		{
 			var actual = new FieldId(string.Empty, Instance);
 			Assert(actual, string.Empty);
-
-
 		}
+
+
 
 
 
