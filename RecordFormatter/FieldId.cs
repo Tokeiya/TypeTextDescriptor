@@ -12,6 +12,7 @@ namespace RecordFormatter
 
 		internal FieldId(string id,IRecordLabel parent)
 		{
+			if (parent is ImaginaryRoot) throw new ArgumentException($"{nameof(parent)} is ImaginaryRoot");
 			Parent = parent;
 			_id = id;
 		}
@@ -26,7 +27,7 @@ namespace RecordFormatter
 
 		public void ToRecord(StringBuilder buffer)
 		{
-			var ret = Regex.Replace(_id, "[\\r\\n\\\"{}<>]", m => m.Groups[0].Value switch
+			var ret = Regex.Replace(_id, "[\\r\\n\\\"{}<>\\|]", m => m.Groups[0].Value switch
 				{
 					"\r" => "\\r",
 					"\n" => "\\n",
@@ -35,10 +36,11 @@ namespace RecordFormatter
 					"}" => "\\}",
 					"<" => "\\<",
 					">" => "\\>",
+					"|"=>"\\|",
 					_ => throw new InvalidOperationException()
 			});
 
-			buffer.Append($"\"{ret}\"");
+			buffer.Append(ret);
 		}
 	}
 }
