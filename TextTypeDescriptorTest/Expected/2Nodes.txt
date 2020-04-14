@@ -1,0 +1,13 @@
+﻿digraph sample{
+	graph[
+		charset="UTF-8",
+	]
+
+	node[
+		shape=record
+	]
+
+	1 [label = "first|bar"];
+	2 [label = "{hoge|piyo}"];
+	1->2
+}

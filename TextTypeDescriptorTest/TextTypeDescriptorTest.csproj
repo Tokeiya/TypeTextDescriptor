@@ -26,4 +26,13 @@
     <ProjectReference Include="..\TypeTextDescriptor\TypeTextDescriptor.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Expected\2Nodes.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Expected\Simple.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

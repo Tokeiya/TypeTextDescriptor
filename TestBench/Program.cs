@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Linq.Expressions;
+using RecordFormatter;
 
 namespace TestBench
 {
@@ -14,14 +16,23 @@ namespace TestBench
 	{
 		static void Main(string[] args)
 		{
-			//X+Y
-			Expression<Func<Point,double>> expr = (p) => Math.Abs(p.X + p.Y);
+			var writer=new StringWriter();
+			using var digraph = new DigraphWriter("sample", new StreamWriter("G:\\output.dot"));
 
-			
+			var a = new RecordNode(Direction.Horizontal);
+			a.RootLabel.Add("a");
+			a.RootLabel.Add("b");
 
-			var hoge = new SampleWalker();
 
-			hoge.Visit(expr);
+			var b=new RecordNode(Direction.Vertical);
+			b.RootLabel.Add("c");
+			b.RootLabel.Add("d");
+
+			digraph.WriteEdge(a, b);
+			digraph.WriteRecord(a);
+			digraph.WriteRecord(b);
+
+
 		}
 	}
 }

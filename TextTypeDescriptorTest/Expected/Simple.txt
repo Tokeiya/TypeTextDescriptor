@@ -1,0 +1,10 @@
+﻿digraph sample{
+	graph[
+		charset="UTF-8",
+	]
+
+	node[
+		shape=record
+	]
+
+}
