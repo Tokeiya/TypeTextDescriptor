@@ -62,9 +62,11 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 			actual = new FieldId("\"", ImaginaryRoot.Root);
 			Assert(actual, "\\\"");
 
-			actual = new FieldId("{", ImaginaryRoot.Root);
-			Assert(actual, "\\{");
+			actual = new FieldId("{}", ImaginaryRoot.Root);
+			Assert(actual, "\\{\\}");
 
+			actual = new FieldId("<>", ImaginaryRoot.Root);
+			Assert(actual, "\\<\\>");
 
 
 

@@ -26,13 +26,16 @@ namespace RecordFormatter
 
 		public void ToRecord(StringBuilder buffer)
 		{
-			var ret = Regex.Replace(_id, "[\\r\\n\\\"{]", m => m.Groups[0].Value switch
-			{
-				"\r" => "\\r",
-				"\n" => "\\n",
-				"\"" => "\\\"",
-				"{" => "\\{",
-				_ => throw new InvalidOperationException()
+			var ret = Regex.Replace(_id, "[\\r\\n\\\"{}<>]", m => m.Groups[0].Value switch
+				{
+					"\r" => "\\r",
+					"\n" => "\\n",
+					"\"" => "\\\"",
+					"{" => "\\{",
+					"}" => "\\}",
+					"<" => "\\<",
+					">" => "\\>",
+					_ => throw new InvalidOperationException()
 			});
 
 			buffer.Append($"\"{ret}\"");
