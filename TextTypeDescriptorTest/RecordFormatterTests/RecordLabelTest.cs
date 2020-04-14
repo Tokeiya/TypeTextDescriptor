@@ -4,6 +4,8 @@ using Xunit;
 using Xunit.Abstractions;
 using static RecordFormatter.ImaginaryRoot;
 using ChainingAssertion;
+using Microsoft.VisualBasic;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 
 
 namespace TextTypeDescriptorTest.RecordFormatterTests
@@ -113,10 +115,38 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 
 
 			Assert(actual, "{first|{nested_first|nested_second}|third}");
+		}
+
+		[Fact]
+		public void EmptyElementTest()
+		{
+			var actual = new RecordLabel(Root, false);
+			Assert(actual, "");
+
+			actual.Add(string.Empty);
+			actual.Add(string.Empty);
+			Assert(actual, "|");
+
+			var tmp = actual.Add();
+
+			Assert(actual, "||{}");
+
+
+			actual = new RecordLabel(Root, true);
+			Assert(actual, "{}");
+			actual.Add(string.Empty);
+			actual.Add(string.Empty);
+			Assert(actual,"{|}");
+
+			actual.Add();
+			Assert(actual, "{||{}}");
+
+
 
 
 
 		}
+
 
 
 

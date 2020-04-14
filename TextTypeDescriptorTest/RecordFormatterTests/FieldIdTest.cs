@@ -92,8 +92,14 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 
 			actual = new FieldId("<>|", Instance);
 			Assert(actual, "\\<\\>\\|");
+		}
 
 
+		[Fact]
+		public void EmptyTest()
+		{
+			var actual = new FieldId(string.Empty, Instance);
+			Assert(actual, string.Empty);
 
 
 		}
