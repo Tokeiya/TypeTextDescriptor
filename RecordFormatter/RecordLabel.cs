@@ -26,7 +26,6 @@ namespace RecordFormatter
 
 		public void ToRecord(StringBuilder buffer)
 		{
-			if (Parent is ImaginaryRoot) buffer.Append('"');
 			if (_hasBrackets) buffer.Append('{');
 
 			foreach (var elem in _elements)
@@ -38,7 +37,6 @@ namespace RecordFormatter
 			if (_elements.Count > 0) buffer.Remove(buffer.Length - 1, 1);
 
 			if (_hasBrackets) buffer.Append('}');
-			if (Parent is ImaginaryRoot) buffer.Append('"');
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 			var bld = new StringBuilder();
 			actual.ToRecord(bld);
 
-			bld.ToString().Is($"\"{expected}\"");
+			bld.ToString().Is(expected);
 		}
 
 		[Fact]
