@@ -3,12 +3,10 @@ using System.Text;
 
 namespace RecordFormatter
 {
-	public interface IRecordLabel
+	public interface IRecordLabel:IWritableElement
 	{
 		IRecordLabel Parent { get; }
 		void Add(string fieldId);
 		IRecordLabel Add();
-
-		void ToRecord(StringBuilder buffer);
 	}
 }

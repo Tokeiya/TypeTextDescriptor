@@ -129,6 +129,7 @@ namespace TestBench
 
 		protected override Expression VisitParameter(ParameterExpression node)
 		{
+
 			var record = new RecordNode(Direction.Vertical);
 			record.RootLabel.Add("Parameter");
 			record.RootLabel.Add($"Type:{node.Type.Name}");

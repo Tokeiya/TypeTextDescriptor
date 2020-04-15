@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
@@ -29,7 +30,8 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		}
 
 		public IRecordLabel Parent { get; }
-		public void ToRecord(StringBuilder buffer)
+
+		public void WriteElement(TextWriter writer)
 		{
 			throw new NotImplementedException();
 		}
@@ -68,9 +70,13 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		{
 
 			var bld = new StringBuilder();
-			actual.ToRecord(bld);
+			((IWritableElement)actual).WriteElement(bld);
 			_output.WriteLine(bld.ToString());
 			bld.ToString().Is(expected);
+
+			using var wtr = new StringWriter();
+			actual.WriteElement(wtr);
+			wtr.GetStringBuilder().ToString().Is(expected);
 		}
 
 

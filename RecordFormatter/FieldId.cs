@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -31,22 +32,10 @@ namespace RecordFormatter
 		}
 
 
-		public void ToRecord(StringBuilder buffer)
+		public void WriteElement(TextWriter writer)
 		{
-			var ret = Regex.Replace(_id, "[\\r\\n\\\"{}<>\\|]", m => m.Groups[0].Value switch
-			{
-				"\r" => "\\r",
-				"\n" => "\\n",
-				"\"" => "\\\"",
-				"{" => "\\{",
-				"}" => "\\}",
-				"<" => "\\<",
-				">" => "\\>",
-				"|" => "\\|",
-				_ => throw new InvalidOperationException()
-			});
-
-			buffer.Append(ret);
+			var ret = TextNormalizer.Normalize(_id);
+			writer.Write(ret);
 		}
 	}
 }

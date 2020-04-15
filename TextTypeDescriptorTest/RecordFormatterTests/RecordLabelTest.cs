@@ -1,11 +1,11 @@
-using System.Text;
+using System.Buffers;
+using System.IO;
+using ChainingAssertion;
 using RecordFormatter;
+using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 using static RecordFormatter.ImaginaryRoot;
-using ChainingAssertion;
-using Microsoft.VisualBasic;
-using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities.ObjectModel;
 
 
 namespace TextTypeDescriptorTest.RecordFormatterTests
@@ -19,9 +19,18 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		static void Assert(RecordLabel actual, string expected)
 		{
 			var bld = new StringBuilder();
-			actual.ToRecord(bld);
+			((IWritableElement) actual).WriteElement(bld);
 
 			bld.ToString().Is(expected);
+
+			bld.Clear();
+			using var wtr = new StringWriter(bld);
+			actual.WriteElement(wtr);
+
+
+
+
+
 		}
 
 		[Fact]
@@ -74,7 +83,7 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		{
 			var actual = new RecordLabel(Root, false);
 			actual.Add("parent");
-			
+
 			var tmp = actual.Add();
 			tmp.Add("nested");
 
@@ -136,7 +145,7 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 			Assert(actual, "{}");
 			actual.Add(string.Empty);
 			actual.Add(string.Empty);
-			Assert(actual,"{|}");
+			Assert(actual, "{|}");
 
 			actual.Add();
 			Assert(actual, "{||{}}");

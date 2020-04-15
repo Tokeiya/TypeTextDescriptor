@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using Xunit;
 using static RecordFormatter.ImaginaryRoot;
@@ -24,7 +25,12 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		public void ToRecordTest()
 		{
 			var buff=new StringBuilder();
-			Assert.Throws<NotSupportedException>(() => Root.ToRecord(buff));
+			using var wtr=new StringWriter();
+			
+
+			Assert.Throws<NotSupportedException>(() => Root.WriteElement(buff));
+			Assert.Throws<NotSupportedException>(() => Root.WriteElement(wtr));
+
 		}
 
 

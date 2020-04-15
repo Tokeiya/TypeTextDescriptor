@@ -2,14 +2,13 @@
 using System;
 using System.IO;
 using System.Text;
+using System.Xml.Linq;
 using Microsoft.Extensions.ObjectPool;
 
 namespace RecordFormatter
 {
 	public sealed class DigraphWriter : IDisposable
 	{
-		private readonly ObjectPool<StringBuilder> _pool =
-			ObjectPool.Create(new DefaultPooledObjectPolicy<StringBuilder>());
 
 		private readonly TextWriter _writer;
 		private bool _isDisposed;
@@ -42,19 +41,9 @@ namespace RecordFormatter
 
 		public void WriteRecord(RecordNode node)
 		{
-			var bld = _pool.Get();
-
-			try
-			{
-				node.ToRecordNode(bld);
-				_writer.Write('\t');
-				_writer.WriteLine(bld.ToString());
-			}
-			finally
-			{
-				bld.Clear();
-				_pool.Return(bld);
-			}
+			_writer.Write('\t');
+			node.WriteElement(_writer);
+			_writer.WriteLine();
 		}
 
 		public void WriteEdge(RecordNode from, RecordNode to)

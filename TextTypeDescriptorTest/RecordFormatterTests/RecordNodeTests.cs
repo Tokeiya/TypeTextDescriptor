@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Text;
 using ChainingAssertion;
 using RecordFormatter;
@@ -16,10 +17,18 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 
 		private static void Assert(RecordNode actual, string expectedRecord)
 		{
+
 			var buff=new StringBuilder();
-			actual.ToRecordNode(buff);
+			((IWritableElement) actual).WriteElement(buff);
 
 			buff.ToString().Is($"{actual.Identity} [label = \"{expectedRecord}\"];");
+
+			buff.Clear();
+			using var wtr = new StringWriter(buff);
+			actual.WriteElement(wtr);
+
+			buff.ToString().Is($"{actual.Identity} [label = \"{expectedRecord}\"];");
+
 		}
 
 		[Fact]

@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using System;
+using System.IO;
 using System.Text;
 using System.Threading;
 
@@ -13,7 +14,7 @@ namespace RecordFormatter
 	}
 
 
-	public sealed class RecordNode
+	public sealed class RecordNode:IWritableElement
 	{
 		private static int _idSeed;
 
@@ -34,14 +35,16 @@ namespace RecordFormatter
 			return Interlocked.Increment(ref _idSeed);
 		}
 
-		public void ToRecordNode(StringBuilder buffer)
+
+
+		public void WriteElement(TextWriter writer)
 		{
-			buffer.Append(Identity);
-			buffer.Append(" [label = \"");
+			writer.Write(Identity); 
+			writer.Write(" [label = \"");
 
-			RootLabel.ToRecord(buffer);
+			RootLabel.WriteElement(writer);
 
-			buffer.Append("\"];");
+			writer.Write("\"];");
 		}
 	}
 }

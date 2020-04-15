@@ -1,6 +1,6 @@
 ﻿#nullable enable
 using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
 namespace RecordFormatter
 {
@@ -29,19 +29,21 @@ namespace RecordFormatter
 			return ret;
 		}
 
-		public void ToRecord(StringBuilder buffer)
-		{
-			if (_hasBrackets) buffer.Append('{');
 
-			foreach (var elem in _elements)
+		public void WriteElement(TextWriter writer)
+		{
+			if (_hasBrackets) writer.Write('{');
+
+
+			for (int i = 0; i < _elements.Count; i++)
 			{
-				elem.ToRecord(buffer);
-				buffer.Append("|");
+				_elements[i].WriteElement(writer);
+
+				if (i < _elements.Count - 1) writer.Write('|');
 			}
 
-			if (_elements.Count > 0) buffer.Remove(buffer.Length - 1, 1);
 
-			if (_hasBrackets) buffer.Append('}');
+			if (_hasBrackets) writer.Write('}');
 		}
 	}
 }
