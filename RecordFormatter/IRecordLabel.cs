@@ -3,7 +3,7 @@ using System.Text;
 
 namespace RecordFormatter
 {
-	public interface IRecordLabel:IWritableElement
+	public interface IRecordLabel:IDescribable
 	{
 		IRecordLabel Parent { get; }
 		void Add(string fieldId);

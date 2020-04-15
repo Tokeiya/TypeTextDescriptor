@@ -42,7 +42,7 @@ namespace RecordFormatter
 		public void WriteRecord(RecordNode node)
 		{
 			_writer.Write('\t');
-			node.WriteElement(_writer);
+			node.Describe(_writer);
 			_writer.WriteLine();
 		}
 

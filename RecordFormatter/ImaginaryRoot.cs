@@ -20,7 +20,7 @@ namespace RecordFormatter
 		public IRecordLabel Add()
 		=> throw new NotSupportedException($"{nameof(Add)} is not supported.");
 
-		public void WriteElement(TextWriter writer)
-			=> throw new NotSupportedException($"{nameof(WriteElement)} is not supported.");
+		public void Describe(TextWriter writer)
+			=> throw new NotSupportedException($"{nameof(Describe)} is not supported.");
 	}
 }

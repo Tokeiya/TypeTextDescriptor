@@ -32,7 +32,7 @@ namespace RecordFormatter
 		}
 
 
-		public void WriteElement(TextWriter writer)
+		public void Describe(TextWriter writer)
 		{
 			var ret = TextNormalizer.Normalize(_id);
 			writer.Write(ret);

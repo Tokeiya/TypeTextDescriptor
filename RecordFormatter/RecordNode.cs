@@ -14,7 +14,7 @@ namespace RecordFormatter
 	}
 
 
-	public sealed class RecordNode:IWritableElement
+	public sealed class RecordNode:IDescribable
 	{
 		private static int _idSeed;
 
@@ -37,12 +37,12 @@ namespace RecordFormatter
 
 
 
-		public void WriteElement(TextWriter writer)
+		public void Describe(TextWriter writer)
 		{
 			writer.Write(Identity); 
 			writer.Write(" [label = \"");
 
-			RootLabel.WriteElement(writer);
+			RootLabel.Describe(writer);
 
 			writer.Write("\"];");
 		}

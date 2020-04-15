@@ -28,8 +28,8 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 			using var wtr=new StringWriter();
 			
 
-			Assert.Throws<NotSupportedException>(() => Root.WriteElement(buff));
-			Assert.Throws<NotSupportedException>(() => Root.WriteElement(wtr));
+			Assert.Throws<NotSupportedException>(() => Root.Describe(buff));
+			Assert.Throws<NotSupportedException>(() => Root.Describe(wtr));
 
 		}
 

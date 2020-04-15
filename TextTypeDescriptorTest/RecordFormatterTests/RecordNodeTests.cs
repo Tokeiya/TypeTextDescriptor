@@ -19,13 +19,13 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		{
 
 			var buff=new StringBuilder();
-			((IWritableElement) actual).WriteElement(buff);
+			((IDescribable) actual).Describe(buff);
 
 			buff.ToString().Is($"{actual.Identity} [label = \"{expectedRecord}\"];");
 
 			buff.Clear();
 			using var wtr = new StringWriter(buff);
-			actual.WriteElement(wtr);
+			actual.Describe(wtr);
 
 			buff.ToString().Is($"{actual.Identity} [label = \"{expectedRecord}\"];");
 

@@ -31,7 +31,7 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 
 		public IRecordLabel Parent { get; }
 
-		public void WriteElement(TextWriter writer)
+		public void Describe(TextWriter writer)
 		{
 			throw new NotImplementedException();
 		}
@@ -70,12 +70,12 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		{
 
 			var bld = new StringBuilder();
-			((IWritableElement)actual).WriteElement(bld);
+			((IDescribable)actual).Describe(bld);
 			_output.WriteLine(bld.ToString());
 			bld.ToString().Is(expected);
 
 			using var wtr = new StringWriter();
-			actual.WriteElement(wtr);
+			actual.Describe(wtr);
 			wtr.GetStringBuilder().ToString().Is(expected);
 		}
 

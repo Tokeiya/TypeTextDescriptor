@@ -30,14 +30,14 @@ namespace RecordFormatter
 		}
 
 
-		public void WriteElement(TextWriter writer)
+		public void Describe(TextWriter writer)
 		{
 			if (_hasBrackets) writer.Write('{');
 
 
 			for (int i = 0; i < _elements.Count; i++)
 			{
-				_elements[i].WriteElement(writer);
+				_elements[i].Describe(writer);
 
 				if (i < _elements.Count - 1) writer.Write('|');
 			}

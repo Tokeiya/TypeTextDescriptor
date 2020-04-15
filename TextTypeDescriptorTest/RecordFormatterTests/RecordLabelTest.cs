@@ -19,13 +19,13 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 		static void Assert(RecordLabel actual, string expected)
 		{
 			var bld = new StringBuilder();
-			((IWritableElement) actual).WriteElement(bld);
+			((IDescribable) actual).Describe(bld);
 
 			bld.ToString().Is(expected);
 
 			bld.Clear();
 			using var wtr = new StringWriter(bld);
-			actual.WriteElement(wtr);
+			actual.Describe(wtr);
 
 
 
