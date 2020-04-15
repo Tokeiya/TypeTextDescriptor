@@ -1,8 +1,6 @@
-using System;
-using System.IO;
-using System.Runtime.InteropServices;
 using ChainingAssertion;
 using RecordFormatter;
+using System.IO;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -46,7 +44,7 @@ namespace TextTypeDescriptorTest.RecordFormatterTests
 			actual.WriteEdge(a, b);
 
 			actual.Dispose();
-			
+
 
 			writer.GetStringBuilder().ToString().Is(File.ReadAllText("Expected/2Nodes.txt"));
 
