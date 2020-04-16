@@ -1,11 +1,8 @@
 ﻿#nullable enable
 using System;
 using System.IO;
-using System.Text;
-using System.Xml.Linq;
-using Microsoft.Extensions.ObjectPool;
 
-namespace RecordFormatter
+namespace RecordManipulator.Descriptor
 {
 	public sealed class DigraphWriter : IDisposable
 	{

@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace RecordFormatter
+namespace RecordManipulator.Descriptor
 {
 	internal class ImaginaryRoot : IRecordLabel
 	{

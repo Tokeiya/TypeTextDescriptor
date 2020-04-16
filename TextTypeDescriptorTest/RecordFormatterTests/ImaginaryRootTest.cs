@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 using Xunit;
-using static RecordFormatter.ImaginaryRoot;
+using static RecordManipulator.Descriptor.ImaginaryRoot;
 
 namespace TextTypeDescriptorTest.RecordFormatterTests
 {

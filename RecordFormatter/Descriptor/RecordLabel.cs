@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace RecordFormatter
+namespace RecordManipulator.Descriptor
 {
 	internal sealed class RecordLabel : IRecordLabel
 	{

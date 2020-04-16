@@ -1,7 +1,7 @@
 using System.IO;
 using System.Text;
 using ChainingAssertion;
-using RecordFormatter;
+using RecordManipulator.Descriptor;
 using Xunit;
 using Xunit.Abstractions;
 

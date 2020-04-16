@@ -1,7 +1,5 @@
 ﻿#nullable enable
-using System.Text;
-
-namespace RecordFormatter
+namespace RecordManipulator.Descriptor
 {
 	public interface IRecordLabel:IDescribable
 	{

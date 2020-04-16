@@ -1,11 +1,11 @@
 using System.Buffers;
 using System.IO;
 using ChainingAssertion;
-using RecordFormatter;
 using System.Text;
+using RecordManipulator.Descriptor;
 using Xunit;
 using Xunit.Abstractions;
-using static RecordFormatter.ImaginaryRoot;
+using static RecordManipulator.Descriptor.ImaginaryRoot;
 
 
 namespace TextTypeDescriptorTest.RecordFormatterTests

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace RecordFormatter
+namespace RecordManipulator.Descriptor
 {
 	internal static class TextNormalizer
 	{

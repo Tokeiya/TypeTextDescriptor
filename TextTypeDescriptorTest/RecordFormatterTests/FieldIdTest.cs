@@ -5,7 +5,7 @@ using Xunit;
 using Xunit.Abstractions;
 using static Xunit.Assert;
 using ChainingAssertion;
-using RecordFormatter;
+using RecordManipulator.Descriptor;
 
 
 namespace TextTypeDescriptorTest.RecordFormatterTests

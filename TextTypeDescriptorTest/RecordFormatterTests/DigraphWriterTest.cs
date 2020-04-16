@@ -1,6 +1,6 @@
 using ChainingAssertion;
-using RecordFormatter;
 using System.IO;
+using RecordManipulator.Descriptor;
 using Xunit;
 using Xunit.Abstractions;
 

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Text;
-using System.Text.RegularExpressions;
 
 #nullable enable
 
-namespace RecordFormatter
+namespace RecordManipulator.Descriptor
 {
 	internal sealed class FieldId : IRecordLabel
 	{

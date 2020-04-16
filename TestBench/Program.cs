@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq.Expressions;
-using RecordFormatter;
 
 namespace TestBench
 {
