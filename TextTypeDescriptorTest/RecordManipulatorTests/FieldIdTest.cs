@@ -1,14 +1,14 @@
 using System;
 using System.IO;
 using System.Text;
+using ChainingAssertion;
+using RecordManipulator.Descriptor;
 using Xunit;
 using Xunit.Abstractions;
 using static Xunit.Assert;
-using ChainingAssertion;
-using RecordManipulator.Descriptor;
 
 
-namespace TextTypeDescriptorTest.RecordFormatterTests
+namespace TextTypeDescriptorTest.RecordManipulatorTests
 {
 	using static Dummy;
 	class Dummy : IRecordLabel

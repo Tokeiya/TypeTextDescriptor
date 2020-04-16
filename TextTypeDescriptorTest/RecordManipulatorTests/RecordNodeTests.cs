@@ -6,7 +6,7 @@ using RecordManipulator.Descriptor;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace TextTypeDescriptorTest.RecordFormatterTests
+namespace TextTypeDescriptorTest.RecordManipulatorTests
 {
 	public class RecordNodeTests
 	{

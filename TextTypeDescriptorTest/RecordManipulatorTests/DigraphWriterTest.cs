@@ -1,10 +1,10 @@
-using ChainingAssertion;
 using System.IO;
+using ChainingAssertion;
 using RecordManipulator.Descriptor;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace TextTypeDescriptorTest.RecordFormatterTests
+namespace TextTypeDescriptorTest.RecordManipulatorTests
 {
 	public class DigraphWriterTest
 	{

@@ -4,7 +4,7 @@ using System.Text;
 using Xunit;
 using static RecordManipulator.Descriptor.ImaginaryRoot;
 
-namespace TextTypeDescriptorTest.RecordFormatterTests
+namespace TextTypeDescriptorTest.RecordManipulatorTests
 {
 	public class ImaginaryRootTest
 	{
