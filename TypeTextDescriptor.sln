@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextTypeDescriptorTest", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestBench", "TestBench\TestBench.csproj", "{FEF006FA-3590-4ADD-97CA-7814EDD54739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordFormatter", "RecordFormatter\RecordFormatter.csproj", "{A374AA60-AD58-43F7-8BEE-EE566ABC9350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordManipulator", "RecordFormatter\RecordManipulator.csproj", "{A374AA60-AD58-43F7-8BEE-EE566ABC9350}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

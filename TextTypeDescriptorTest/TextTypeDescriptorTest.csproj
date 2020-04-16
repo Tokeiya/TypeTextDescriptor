@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RecordFormatter\RecordFormatter.csproj" />
+    <ProjectReference Include="..\RecordFormatter\RecordManipulator.csproj" />
     <ProjectReference Include="..\TypeTextDescriptor\TypeTextDescriptor.csproj" />
   </ItemGroup>
 
