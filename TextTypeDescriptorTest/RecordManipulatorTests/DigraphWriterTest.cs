@@ -11,7 +11,8 @@ namespace TextTypeDescriptorTest.RecordManipulatorTests
 		private readonly ITestOutputHelper _output;
 
 		public DigraphWriterTest(ITestOutputHelper output) => _output = output;
-
+		
+		
 		[Fact]
 		public void InitialTest()
 		{
