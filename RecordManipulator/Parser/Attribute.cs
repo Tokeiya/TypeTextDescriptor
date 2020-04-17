@@ -18,16 +18,4 @@ namespace RecordManipulator.Parser
 			throw new NotImplementedException();
 		}
 	}
-
-	public class Attributes : IDescribable
-	{
-		
-		
-		public void Describe(TextWriter writer)
-		{
-#warning Describe_Is_NotImpl
-			throw new NotImplementedException("Describe is not implemented");
-		}
-	}
-	
 }

@@ -110,11 +110,8 @@ namespace TestBench
 
 			foreach (var elem in source)
 			{
-				Console.WriteLine(elem);
 				bld.Append(elem);
 			}
-
-			Console.WriteLine();
 			return bld.ToString();
 		}
 
@@ -123,9 +120,13 @@ namespace TestBench
 
 	class Program
 	{
-		
-		
 		static void Main(string[] args)
+		{
+			BasicCalc();
+
+		}
+
+		private static void BasicCalc()
 		{
 			var numberExpr = Many1(DecDigit()).Select(x => x.GetString());
 
@@ -159,12 +160,11 @@ namespace TestBench
 			var hoge = from s in exprExpr.Parser
 				from _ in Text.EndOfInput()
 				select s;
-			
-			
-			
 
+
+			
+			
 			hoge.Dump("((10+100)*100)");
 		}
-
 	}
 }
