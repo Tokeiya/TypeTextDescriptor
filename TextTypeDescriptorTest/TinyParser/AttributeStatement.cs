@@ -2,7 +2,7 @@
 
 namespace TextTypeDescriptorTest.TinyParser
 {
-	class AttributeStatement
+	class AttributeStatement:ParsedEntity
 	{
 		public AttributeStatement(Id attributeTo, AttributeList attributes) =>
 			(AttributeTo, Attributes) = (attributeTo, Attributes);

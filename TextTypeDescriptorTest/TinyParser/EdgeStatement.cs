@@ -2,7 +2,7 @@
 
 namespace TextTypeDescriptorTest.TinyParser
 {
-	class EdgeStatement
+	class EdgeStatement:ParsedEntity
 	{
 		public EdgeStatement(Id from, Id to) => (From, To) = (from, to);
 
