@@ -15,25 +15,18 @@ namespace RecordManipulator.Descriptor
 
 	public sealed class RecordNode:IDescribable
 	{
-		private static int _idSeed;
 
-		public RecordNode(Direction initialDirection)
+		public RecordNode(int id,Direction initialDirection)
 		{
 			if (initialDirection == Direction.Horizontal) RootLabel = new RecordLabel(ImaginaryRoot.Root, false);
 			else if (initialDirection == Direction.Vertical) RootLabel = new RecordLabel(ImaginaryRoot.Root);
 			else throw new ArgumentOutOfRangeException(nameof(initialDirection));
 
-			Identity = GetId();
+			Identity = id;
 		}
 
 		public int Identity { get; }
 		public IRecordLabel RootLabel { get; }
-
-		private static int GetId()
-		{
-			return Interlocked.Increment(ref _idSeed);
-		}
-
 
 
 		public void Describe(TextWriter writer)

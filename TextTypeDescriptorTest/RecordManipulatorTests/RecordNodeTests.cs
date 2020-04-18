@@ -35,18 +35,18 @@ namespace TextTypeDescriptorTest.RecordManipulatorTests
 		[Fact]
 		public void CtorTest()
 		{
-			Xunit.Assert.Throws<ArgumentOutOfRangeException>(() => new RecordNode((Direction)10));
+			Xunit.Assert.Throws<ArgumentOutOfRangeException>(() => new RecordNode(1,(Direction)10));
 		}
 
 
 		[Fact]
 		public void InitialDirectionTest()
 		{
-			var actual = new RecordNode(Direction.Horizontal);
+			var actual = new RecordNode(1,Direction.Horizontal);
 			actual.RootLabel.Add("horizontal");
 			Assert(actual, "horizontal");
 
-			actual = new RecordNode(Direction.Vertical);
+			actual = new RecordNode(1,Direction.Vertical);
 			actual.RootLabel.Add("vertical");
 			Assert(actual, "{vertical}");
 		}
@@ -54,14 +54,14 @@ namespace TextTypeDescriptorTest.RecordManipulatorTests
 		[Fact]
 		public void EmptyTest()
 		{
-			var actual = new RecordNode(Direction.Horizontal);
+			var actual = new RecordNode(1,Direction.Horizontal);
 			Assert(actual, "");
 		}
 
 		[Fact]
 		public void ComplexTest()
 		{
-			var actual = new RecordNode(Direction.Vertical);
+			var actual = new RecordNode(1,Direction.Vertical);
 			actual.RootLabel.Add("top");
 			var tmp = actual.RootLabel.Add();
 			tmp.Add("nestedA");

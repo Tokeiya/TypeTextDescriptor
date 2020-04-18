@@ -31,11 +31,11 @@ namespace TextTypeDescriptorTest.RecordManipulatorTests
 			using var writer = new StringWriter();
 			using var actual = new DigraphWriter("sample", writer);
 
-			var a = new RecordNode(Direction.Horizontal);
+			var a = new RecordNode(1,Direction.Horizontal);
 			a.RootLabel.Add("first");
 			a.RootLabel.Add("bar");
 
-			var b = new RecordNode(Direction.Vertical);
+			var b = new RecordNode(2,Direction.Vertical);
 			b.RootLabel.Add("hoge");
 			b.RootLabel.Add("piyo");
 

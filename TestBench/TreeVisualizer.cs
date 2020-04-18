@@ -32,10 +32,11 @@ namespace TestBench
 
 		}
 
+		private int _seed = 0;
 
 		protected override Expression VisitLambda<T>(Expression<T> node)
 		{
-			var record = new RecordNode(Direction.Vertical);
+			var record = new RecordNode(_seed++,Direction.Vertical);
 			record.RootLabel.Add("Lambda");
 			WriteEdge(record);
 			_parent.Push(record);
@@ -81,7 +82,7 @@ namespace TestBench
 
 		protected override Expression VisitBinary(BinaryExpression node)
 		{
-			var record = new RecordNode(Direction.Vertical);
+			var record = new RecordNode(_seed++,Direction.Vertical);
 			record.RootLabel.Add("binary");
 			record.RootLabel.Add($"Operator:{GetOperator(node.NodeType)}");
 
@@ -97,7 +98,7 @@ namespace TestBench
 
 		protected override Expression VisitConstant(ConstantExpression node)
 		{
-			var record = new RecordNode(Direction.Vertical);
+			var record = new RecordNode(_seed++,Direction.Vertical);
 			record.RootLabel.Add("Constant");
 			record.RootLabel.Add($"Type:{node.Type.Name}");
 			record.RootLabel.Add($"Value:{node.Value}");
@@ -114,7 +115,7 @@ namespace TestBench
 
 		protected override Expression VisitUnary(UnaryExpression node)
 		{
-			var rec = new RecordNode(Direction.Vertical);
+			var rec = new RecordNode(_seed++,Direction.Vertical);
 			rec.RootLabel.Add("Unary");
 			rec.RootLabel.Add($"Op:{GetOperator(node.NodeType)}");
 
@@ -130,7 +131,7 @@ namespace TestBench
 		protected override Expression VisitParameter(ParameterExpression node)
 		{
 
-			var record = new RecordNode(Direction.Vertical);
+			var record = new RecordNode(_seed++,Direction.Vertical);
 			record.RootLabel.Add("Parameter");
 			record.RootLabel.Add($"Type:{node.Type.Name}");
 			record.RootLabel.Add($"Name:{node.Name}");
@@ -145,7 +146,7 @@ namespace TestBench
 
 		protected override Expression VisitMember(MemberExpression node)
 		{
-			var rec = new RecordNode(Direction.Vertical);
+			var rec = new RecordNode(_seed++,Direction.Vertical);
 			rec.RootLabel.Add("MemberAccess");
 			rec.RootLabel.Add($"Name:{node.Member.Name}");
 
